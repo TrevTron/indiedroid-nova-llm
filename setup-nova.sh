@@ -86,7 +86,9 @@ fi
 
 # Install rknn-toolkit-lite2 Python package
 echo "  Installing rknn-toolkit-lite2..."
-WHEEL_PATH=$(find "$HOME/projects/rknn-toolkit2" -name "rknn_toolkit_lite2*cp311*aarch64.whl" 2>/dev/null | head -1)
+PYVER=$(python3 -c 'import sys; print(f"cp{sys.version_info.major}{sys.version_info.minor}")')
+echo "  Detected Python ABI tag: $PYVER"
+WHEEL_PATH=$(find "$HOME/projects/rknn-toolkit2" -name "rknn_toolkit_lite2*${PYVER}*aarch64.whl" 2>/dev/null | head -1)
 if [ -n "$WHEEL_PATH" ]; then
     pip3 install "$WHEEL_PATH" --break-system-packages
     echo "  ✓ rknn-toolkit-lite2 installed"

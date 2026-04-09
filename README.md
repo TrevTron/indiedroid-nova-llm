@@ -70,7 +70,7 @@ chmod +x setup-nova.sh
 ```
 
 This installs:
-- Python 3.11 + dependencies
+- Python 3.11+ (auto-detected) + dependencies
 - RKNN Toolkit Lite 2
 - RKLLM CLI tools (ezrknn-llm)
 - Runtime libraries
